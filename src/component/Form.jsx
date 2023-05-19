@@ -5,17 +5,18 @@ const Form = () => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
 
-  // handle name change:
-  const handleName = e => {
-    setName(e.target.value);
-  };
-  // handle email:
-  const handleEmail = e => {
-    setEmail(e.target.value);
-  };
-  //Hnadle pass:
-  const handlePass = e => {
-    setPass(e.target.value);
+  // handle any change:
+  const handleChange = e => {
+    const inputName = e.target.name;
+    if (inputName === "name") {
+      setName(e.target.value);
+    }
+    if (inputName === "email") {
+      setEmail(e.target.value);
+    }
+    if (inputName === "password") {
+      setPass(e.target.value);
+    }
   };
   // handle submit:
   const handleSubmit = e => {
@@ -36,7 +37,7 @@ const Form = () => {
         <form className="p-2" onSubmit={handleSubmit}>
           <div className="mb-3">
             <input
-              onChange={handleName}
+              onChange={handleChange}
               placeholder="Enter your name"
               type="text"
               className="form-control"
@@ -48,7 +49,7 @@ const Form = () => {
           </div>
           <div className="mb-3">
             <input
-              onChange={handleEmail}
+              onChange={handleChange}
               placeholder="Enter your email"
               type="email"
               className="form-control"
@@ -60,7 +61,7 @@ const Form = () => {
           </div>
           <div className="mb-3">
             <input
-              onChange={handlePass}
+              onChange={handleChange}
               placeholder="Enter your password"
               type="password"
               className="form-control"
